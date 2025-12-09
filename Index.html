@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello Clone - Team Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-trello"></i>
+                <h1>TeamBoard</h1>
+            </div>
+            <div class="user-menu">
+                <button class="btn-user" id="userBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Team</span>
+                </button>
+                <div class="team-members">
+                    <div class="member" style="background-color: #3498db;">JD</div>
+                    <div class="member" style="background-color: #2ecc71;">AS</div>
+                    <div class="member" style="background-color: #e74c3c;">MP</div>
+                    <div class="member" style="background-color: #f39c12;">KL</div>
+                    <div class="member" style="background-color: #9b59b6;">+3</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Board Controls -->
+        <div class="board-controls">
+            <div class="board-info">
+                <h2 id="boardTitle">Marketing Campaign</h2>
+                <div class="board-actions">
+                    <button class="btn btn-outline"><i class="fas fa-star"></i></button>
+                    <button class="btn btn-outline"><i class="fas fa-users"></i> Team</button>
+                    <button class="btn btn-outline"><i class="fas fa-bell"></i></button>
+                    <div class="divider"></div>
+                    <button class="btn btn-primary" id="addListBtn">
+                        <i class="fas fa-plus"></i> Add List
+                    </button>
+                </div>
+            </div>
+            
+            <div class="view-options">
+                <button class="view-btn active"><i class="fas fa-border-all"></i> Board</button>
+                <button class="view-btn"><i class="fas fa-chart-bar"></i> Timeline</button>
+                <button class="view-btn"><i class="fas fa-table"></i> Table</button>
+            </div>
+        </div>
+
+        <!-- Main Board -->
+        <div class="board" id="board">
+            <!-- Lists will be dynamically added here -->
+        </div>
+
+        <!-- Add List Form (Initially Hidden) -->
+        <div class="add-list-form" id="addListForm">
+            <input type="text" id="listTitleInput" placeholder="Enter list title..." autofocus>
+            <div class="form-actions">
+                <button class="btn btn-primary" id="saveListBtn">Add List</button>
+                <button class="btn btn-cancel" id="cancelListBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Add Card Modal -->
+        <div class="modal" id="cardModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add New Task</h3>
+                    <button class="btn-close" id="closeCardModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="cardTitle">Task Title</label>
+                        <input type="text" id="cardTitle" placeholder="What needs to be done?">
+                    </div>
+                    <div class="form-group">
+                        <label for="cardDescription">Description</label>
+                        <textarea id="cardDescription" rows="3" placeholder="Add more details..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardLabels">Labels</label>
+                        <div class="label-options">
+                            <span class="label-option" data-color="#61bd4f">Frontend</span>
+                            <span class="label-option" data-color="#f2d600">Backend</span>
+                            <span class="label-option" data-color="#ff9f1a">Design</span>
+                            <span class="label-option" data-color="#eb5a46">Bug</span>
+                            <span class="label-option" data-color="#c377e0">Feature</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardAssignee">Assign to</label>
+                        <select id="cardAssignee">
+                            <option value="unassigned">Unassigned</option>
+                            <option value="john">John Doe</option>
+                            <option value="alice">Alice Smith</option>
+                            <option value="mike">Mike Johnson</option>
+                            <option value="kate">Kate Wilson</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardDueDate">Due Date</label>
+                        <input type="date" id="cardDueDate">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancelCardBtn">Cancel</button>
+                    <button class="btn btn-primary" id="saveCardBtn">Create Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
